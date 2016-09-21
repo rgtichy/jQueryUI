@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Load a form to a table</title>
+  <meta></meta>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+  $(document).ready(function(){
+    console.log("jQuery Loaded")
+    $( "#accordion" ).accordion();
+    $( "#tabs" ).tabs();
+    $( "#tabs_sub1" ).tabs();
+  })
+  </script>
+</head>
+<body>
+  <div id="wrapper">
+    <h1>This is the title of the page</h1>
+    <div id="accordion">
+      <h3>Header A</h3>
+      <div class='accordion'><p>
+        Lorem ipsum dolor sit amet, sit vide vituperata te, te odio numquam
+        dissentiunt nec. Vim magna quidam probatus eu, discere corrumpit sea no.
+        An his solet salutatus. Aperiri volutpat efficiantur ei vel, ex sonet
+        graecis tacimates usu. Ipsum maiorum an ius, ex vis posse causae
+        eligendi. Ut nec habemus pertinacia quaerendum. Quidam graecis ut
+        duo, no eum cibo platonem consequuntur, eu vim mundi erroribus.
+      </p>
+      </div>
+      <h3>Header B</h3>
+      <div class='accordion'>
+        <p>
+          Lorem ipsum dolor sit amet, sit vide vituperata te, te odio numquam
+          dissentiunt nec. Vim magna quidam probatus eu, discere corrumpit sea
+          no. An his solet salutatus. Aperiri volutpat efficiantur ei vel, ex
+          sonet graecis tacimates usu. Ipsum maiorum an ius, ex vis posse
+          causae eligendi. Ut nec habemus pertinacia quaerendum. Quidam
+          graecis ut duo, no eum cibo platonem consequuntur, eu vim mundi
+          erroribus. Cum ea legimus inermis consulatu. Tollit ornatus
+          neglegentur in sed, no saperet admodum argumentum his, affert
+          audire alterum ne per. Sea fugit posidonium in, alia illum atqui
+          mel et. Eu quas mandamus has, modus tritani omittam cum at. Primis
+          urbanitas ne eos. Duo ea labore civibus quaestio, intellegam
+          ullamcorper eos te. Postea dolorum ocurreret eos no, vel error
+          facilis an, eos in choro omnium denique. Te mel accusata eleifend,
+          vim semper malorum volumus an, in pri hinc nulla tation. Ad forensibus
+          concludaturque per, ne illum solet abhorreant ius, nam sumo adhuc
+          delenit no. Patrioque consequat pro at. Pri ea nullam appareat
+          vulputate, cum tollit consequat an. Nam at ludus mnesarchum, ei
+          prima phaedrum vim. Legendos urbanitas his ei, qui ne dissentias
+          quaerendum, usu tritani voluptaria ei. Mea eligendi perpetua
+          tincidunt no, ne pri purto epicurei deterruisset. Id pro percipitur
+          sadipscing, vix et labores temporibus. Nullam euismod verterem usu
+          ne. Ei mel apeirian lobortis, qui nisl feugiat tacimates ne. In has
+          paulo option oblique, no sanctus fabulas neglegentur vis, stet latine
+          has ex. Vel ei illum ridens, id pri imperdiet voluptatibus. Nonumy
+          electram splendide quo cu. Sit probo pertinax ut, eu dicat admodum
+          vix. His cu cibo noster inermis, at eum quis doming conceptam. Ubique
+          soluta ad quo, eam te aliquando disputationi. Partem intellegam ea
+          usu, ei sea scripta recteque tractatos. Partiendo erroribus cum at,
+          tota pericula usu id, tota explicari ius ei. Utroque perpetua vel
+          an, vel ex nulla feugiat. Te nulla alterum nonumes has, eum accusata
+          principes theophrastus ne. Per dissentias reformidans cu. Ea novum
+          persius ornatus eum, mel ut quod intellegat. An nam augue nonumes.
+          Cu exerci libris labore est, id facilis appellantur dissentiunt vim,
+          cu duis harum duo. Id eos vero omnium, oblique indoctum sea et, an
+          semper delectus has. Nonumy habemus atomorum eu has, atqui cotidieque
+          definitiones an mea.</p>
+      </div>
+      <h3>Tabs Inside the Accordion</h3>
+      <div class='accordion'>
+        <div id="tabs_sub1">
+          <ul>
+            <li><a href="#fragment-1"><span>One</span></a></li>
+            <li><a href="#fragment-2"><span>Two</span></a></li>
+            <li><a href="#fragment-3"><span>Three</span></a></li>
+          </ul>
+          <div id="fragment-1">
+            <p>First tab is active by default:</p>
+            <pre><code>$( "#tabs" ).tabs(); </code></pre>
+          </div>
+          <div id="fragment-2">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+          </div>
+          <div id="fragment-3">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+          </div>
+        </div>
+      </div>
+      <h3>Header D</h3>
+      <div class='accordion'>
+        D
+      </div>
+    </div><!--- accordion --->
+    <div id="tabs">
+      <ul>
+        <li><a href="#fragment-1"><span>One</span></a></li>
+        <li><a href="#fragment-2"><span>Two</span></a></li>
+        <li><a href="#fragment-3"><span>Three</span></a></li>
+      </ul>
+      <div id="fragment-1">
+        <p>First tab is active by default:</p>
+        <pre><code>$( "#tabs" ).tabs(); </code></pre>
+      </div>
+      <div id="fragment-2">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      </div>
+      <div id="fragment-3">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      </div>
+    </div>
+  </div><!--- wrapper --->
+</body>
