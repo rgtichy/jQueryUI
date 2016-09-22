@@ -1,0 +1,60 @@
+* {
+  margin: 0 auto;
+  /*width: 960px;*/
+}
+  th {
+    border: 1px solid black;
+  }
+  table {width: 800px;}
+  thead {font-family: arial, sans-serif;}
+  tr:nth-child(even) {background-color: #f2f2f2}
+  #wrapper {
+    width: 960px;
+    overflow: hidden;
+    font-family: arial, sans-serif;
+  }
+  #inputrow {
+    width: 790px;
+    padding: 5px;
+    margin-top: 30px;
+    border: 2px solid black;
+  }
+    #inputrow h2 {
+      color: navy;
+      background-color: silver;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    #inputrow input {
+      display: inline;
+      margin-bottom: 5px;
+      width: 300px;
+    }
+    #inputrow button {
+      display: inline;
+      /*width: 125px;*/
+      /*margin-left: 300px;*/
+      /*background-color: navy;*/
+      /*color: silver;*/
+      /*border-radius: 5px;*/
+      /*border-color: lightblue;*/
+    }
+    #inputrow input.date  {
+      display: inline;
+      margin-bottom: 5px;
+      width: 80px;
+      }
+    #inputrow input.phone  {
+      display: inline;
+      margin-bottom: 5px;
+      width: 100px;
+      }
+    .error {
+      background: linear-gradient(to right,white,white,white,white,white,white,red);
+    }
+    label.error {
+      color: black;
+      font-style: italic;
+      font-size: 80%;
+      background: transparent;
+    }

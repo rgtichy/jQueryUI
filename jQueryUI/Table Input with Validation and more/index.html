@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <title>Validate and Load Form Data to a table</title>
+  <meta></meta>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/le-frog/jquery-ui.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="waves.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <script src="./js/sticky-header.js"></script>
+  <script src="./js/waves.min.js"></script>
+  <script>
+  // function writeRow
+  function writeRow(first,last,email,phone, birthdate) {
+    $( 'table' ).append("<tr><td>"+first+"</td><td>"+last+"</td><td>"+birthdate+"</td><td>"+email+"</td><td>"+phone+"</td></tr>")
+  }
+  function validateData(first, last, phone, email) {
+      var indicator=true;
+    return({indicator});
+  }
+
+  $(document).ready(function(){
+    console.log("jQuery Loaded");
+    // Sticky Header plugin
+    $('.top').stickMe();
+    // Waves effect on buttons
+    Waves.attach('button','waves-button');
+    Waves.init();
+    $(this).click(function() {
+      Waves.ripple($(this).attr('id'));
+    });
+    // Initialize jQuery Validator
+    $.validator.setDefaults({
+  		submitHandler: function() {
+        console.log("validator defaults set");
+  		}
+  	});
+    // // Initialize jQuery Validator
+    // $.validator.setDefaults({
+    //   submitHandler: function() {
+    //     console.log("validator defaults set");
+    //   }
+    // });
+    // use datepicker
+    $( "#birthdate" ).datepicker({
+        navigationAsDateFormat: true,
+        autoSize: true,
+        showOn: "button",
+        altFormat: "dd-M-yy",
+				dateFormat: "dd/mm/yy",
+				onSelect: function(dateText, inst) {
+          var altField = $( "#birthdate" ).datepicker( "option", "altField" );
+					var date = $.datepicker.parseDate(inst.settings.dateFormat || $.datepicker._defaults.dateFormat, dateText, inst.settings);
+					var dateText1 = $.datepicker.formatDate("D, d M yy", date, inst.settings);
+					date.setDate(date.getDate() + 7);
+					var dateText2 = $.datepicker.formatDate("D, d M yy", date, inst.settings);
+          console.log("datepicker output:"+date+"//"+dateText1)
+				}
+			});
+
+    // Every two seconds load another row of fictional data
+    var myVar = setInterval(writeSampleRow, (1000+Math.floor(Math.random()*2000)));
+      function writeSampleRow() {
+        var f$ = ["John","Paul","George","Richard","Mary","Yoko","Linda","Brian"];
+        var l$ = ["Smith","Lennon","McCartney","Ono","Eastman","Harrison","Starkey"]
+        var first = f$[Math.floor(Math.random() * 8)];
+        var last = l$[Math.floor(Math.random() * 7)];
+        var birthdate = '12/25/1975';
+        var email = first+"."+last+"@flyingcircus.com";
+        var phone = 'private';
+
+        writeRow(first,last,email,phone, birthdate);
+      }
+    // Validate form entry using .validate()
+    $().ready(function() {
+      console.log ("keyup");
+      $('#inputrow').validate({
+        rules:  {
+                firstname:  {
+                        required:true,
+                        minlength: 1
+                        },
+                lastname:  {
+                        required:true,
+                        minlength: 2
+                        },
+                birthdate:  {
+                        required:true
+                        },
+                email: {required: true, email: true},
+                phone: {
+                        required: false,
+                        minlength: 7
+                        }
+                },
+                messages: {
+                          firstname: "Please specify your name",
+                          lastname: "Please specify your surname",
+                          birthdate: "Enter a valid date",
+                          email: {required: "We need your email address to contact you",
+                                  email: "Your email must be in the form name@domain.com"
+                          }
+                }
+        });
+    $('#inputrow').submit(function() {
+
+        //retrieve(first,last,email,phone);
+        var f = $( "#firstname" ).val();
+        var l = $( "#lastname" ).val();
+        var e = $( "#email" ).val();
+        var p = $( "#phone" ).val();
+        var b = $( "#birthdate").val();
+
+        // console.log($( "#birthdate").val())
+        // var b2= new Date(b);
+        // console.log("new Date b2 = "+b2);
+        // var b2 = $.datepicker.formatDate( "dd/mm/yy", b2);
+        // console.log("Datepicker formatDate b2 = "+b2);
+        if ($( '#inputrow' ).valid() == true) {
+          $("#inputrow input").val("");
+          console.log("Writing to table",f,l,e,p,b)
+          writeRow(f,l,e,p,b);
+        }
+        else {
+          console.log("Errors in form data",f,l,e,p,b)
+        }
+    return(false)
+  });
+  });
+  });
+</script>
+</head>
+<body>
+  <div id="wrapper">
+    <!--- This header will be above the sticky header and scroll of the top --->
+    <div id="hed" class="header">
+    <header class="header">
+      <h2>Contacts Table</h2>
+    </header>
+    </div>
+    <header class="top">
+      <form id="inputrow" method="get" action="">
+        <h2>Add a User</h2>
+        <span><button class=".button">Home</button><button class=".button">Download</button><button class=".button">Clear &amp; Start Over</button></span><br />
+        <span><label for="firstname">First Name</label></span><input id="firstname" name="firstname" type="text" placeholder="John or Jean"><br>
+        <span><label for="lastname">Last Name</label></span><input id="lastname" type="text" name="lastname" placeholder="Smith"/><br>
+        <!-- <span><label for="birthdate">Birthday</label></span><input id="birthdate" class="date" type="text" name="birthdate" placeholder="m/d/yyyy"/><br> -->
+        <span><label for="email">e-Mail Address</label></span><input id="email" type="text" name="email" placeholder="you@domain.com"/><br>
+        <span><label for="phone">Phone</label></span><input id="phone" class="phone" type="text" name="phone" placeholder="999-999-9999"/>
+        <span><label for="birthdate">Birthday</label></span><input id="birthdate" class="date" type="text" name="birthdate" placeholder="m/d/yyyy"/>
+        <button class=".button">Add Row</button>
+      </form>
+    </header>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              First Name
+            </th>
+            <th>
+              Last Name
+            </th>
+            <th>
+              Birthday
+            </th>
+            <th>
+              e-Mail address
+            </th>
+            <th>
+              Phone
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

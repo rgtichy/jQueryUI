@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #wrapper{
+      height: auto;
+      width: auto;
+    }
+    #submissionList{
+      vertical-align: top;
+      display: inline-block;
+      border: 2px solid black;
+      margin-bottom: 20px;
+    }
+    li{
+      list-style: none;
+    }
+    .submissions li{
+      display: inline-block;
+      padding-right: 20px;
+    }
+    .submissions li:last-child{
+      padding-right: 40px;
+    }
+    h1{
+      border-bottom: 2px solid black
+    }
+    #submissionForm{
+      vertical-align: top;
+      display: inline-block;
+    }
+    #formNames{
+      width: 150px;
+      vertical-align: top;
+    }
+    #formNames li{
+      padding: 5px;
+    }
+    form{
+      display: block;
+      vertical-align: top;
+    }
+
+  </style>
+  <script src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+  <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+  <script type="text/javascript">
+
+    console.log("jQuery has loaded properly")
+
+    $(document).ready(function(){
+
+      $(function() {
+        $("form[name='userSignup']").validate({
+          rules: {
+            firstName: "required",
+            lastName: "required",
+            email: {
+              required: true,
+
+              email: true
+            },
+            contact#: {
+              required: true,
+            }
+          },
+
+          submitHandler: function(form) {
+            form.submit();
+          }
+        });
+      });
+
+    });
+
+  </script>
+  <title>Adding Users</title>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="submissionList">
+      <ul class="submissions">
+        <li>First Name</li>
+        <li>Last Name</li>
+        <li>Email Address</li>
+        <li>Contact #</li>
+      </ul>
+    </div>
+    <div id="formHeader">
+      <h1>Add User</h1>
+    </div>
+    <div id="submissionForm">
+      <div id="formNames">
+        <ul>
+          <li>First Name</li>
+          <li>Last Name</li>
+          <li>Email Address</li>
+          <li>Contact #</li>
+        </ul>
+      </div>
+      <form action="" name="userSignup">
+        <input type="firstName" name="First Name">
+        <input type="lastName" name="Last Name">
+        <input type="email" name="Email">
+        <input type="contact#" name="Contact #">
+        <button type="submit">Add User</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

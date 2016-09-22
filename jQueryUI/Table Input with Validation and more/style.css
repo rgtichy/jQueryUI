@@ -1,0 +1,97 @@
+* {
+  margin: 0 auto;
+  /*width: 960px;*/
+}
+  th {
+    border: 1px solid black;
+  }
+  thead {font-family: arial, sans-serif;}
+  tr:nth-child(even) {background-color: #f2f2f2}
+  #wrapper {
+    width: 960px;
+    overflow: hidden;
+    font-family: arial, sans-serif;
+  }
+  button {
+    height: 20px;
+    background-color: lightgreen;
+  }
+  .table {
+    display:inline-block;
+    width: 800px;
+    vertical-align: top;
+    margin-top: 30px;
+  }
+    table.table {
+      width: 800px;
+    }
+      .table th {
+        padding: 0 25px 0 25px;
+      }
+  #inputrow .top {
+    display: block;
+    width: 960px;
+    padding: 5px;
+    margin-top: 30px;
+    border: 2px solid black;
+  }
+    #inputrow h2 {
+      color: darkgreen;
+      background-color: silver;
+      text-align: center;
+      margin-bottom: 5px;
+      border-radius: 25px;
+    }
+    #inputrow input {
+      display: inline;
+      margin-bottom: 5px;
+      width: 200px;
+    }
+    #inputrow button {
+      display: inline;
+      background-color: lightgreen;
+      padding: 3px;
+      border: none;
+      margin-right: 3px;
+      border-radius: 3px;
+      margin-bottom: 7px;
+      /*width: 125px;*/
+      /*margin-left: 300px;*/
+      /*background-color: navy;*/
+      /*color: silver;*/
+      /*border-radius: 5px;*/
+      /*border-color: lightblue;*/
+    }
+    #inputrow input.date  {
+      display: inline;
+      margin-bottom: 5px;
+      width: 80px;
+      }
+    #inputrow input.phone  {
+      display: inline;
+      margin-bottom: 5px;
+      width: 100px;
+      }
+    .header {
+      height: 40px;
+      padding: 5px;
+      background-color: green;
+    }
+    .top {
+      /*height: 20px;*/
+      width: 960px;
+      background-color: green;
+      /*background: linear-gradient(transparent,green, transparent);*/
+      z-index: 999;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .error {
+      background: linear-gradient(to right,white,white,white,white,white,white,red);
+    }
+    label.error {
+      color: black;
+      font-style: italic;
+      font-size: 80%;
+      background: transparent;
+    }
